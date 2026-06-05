@@ -1,8 +1,8 @@
 # Wind Sail Calculator
 
-Wind Sail Calculator is a small Python terminal tool that helps prepare a sailing, windsurfing or catamaran session.
+Wind Sail Calculator is a small Python terminal tool that helps prepare a sailing, windsurfing, catamaran or dinghy session.
 
-The program asks for the activity, level, wind speed, gusts, wind direction and weight, then gives a simple session status, a risk level and practical advice.
+The program asks for the activity, level, wind speed, gusts, wind direction and weight. Then it gives a session status, a risk level, a recommended sail size for windsurfing and practical safety advice.
 
 ## Features
 
@@ -14,11 +14,27 @@ The program asks for the activity, level, wind speed, gusts, wind direction and 
 - Get a session status
 - Get a risk level
 - Get a recommended sail size for windsurfing
-- Get safety advice depending on the conditions
+- Get advice depending on the activity and conditions
 
 ## Technologies
 
 - Python 3
+
+## Project structure
+
+```text
+wind-sail-calculator/
+├── main.py
+├── README.md
+├── .gitignore
+└── src/
+    ├── __init__.py
+    ├── input_handler.py
+    ├── risk.py
+    ├── sail_size.py
+    ├── advice.py
+    └── report.py
+```
 
 ## Installation
 
@@ -38,6 +54,8 @@ python3 main.py
 ## Example
 
 ```text
+Wind Sail Calculator
+
 Activity (windsurf/catamaran/dinghy): windsurf
 Level (beginner/intermediate/advanced): intermediate
 Wind speed in knots: 18
@@ -45,21 +63,36 @@ Gusts in knots: 25
 Wind direction (onshore/offshore/sideshore): sideshore
 Weight in kg: 63
 
+==============================
+        SESSION REPORT
+==============================
+Activity: windsurf
+Level: intermediate
+Wind: 18.0 knots
+Gusts: 25.0 knots
+Direction: sideshore
+
 Session status: Sporty but possible
 Risk level: Medium
-Recommended sail size: 5.5 - 6.5 m²
+Recommended sail size: 5.0 - 6.0 m²
+
 Advice:
-- Good conditions for planing
-- Use harness and footstraps if you are comfortable
-- Be careful with gusts
+- Good conditions for planing.
+- Use harness and footstraps if you are comfortable.
+- Be careful with gusts.
+- Sideshore wind: usually easier to manage.
 ```
+
+## Safety note
+
+This project gives simple advice based on basic sailing experience rules. It does not replace real weather analysis, instructor advice, local safety rules or official weather warnings.
 
 ## Future improvements
 
 - Save sessions in a CSV file
 - Add session history
+- Add board volume advice
 - Add more precise sail size recommendations
-- Add support for board volume
 - Add weather API
 - Add French language option
 
