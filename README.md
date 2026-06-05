@@ -56,12 +56,11 @@ Advice:
 
 ## Future improvements
 
-- Save sessions in a CSV file
-- Add session history
-- Add more precise sail size recommendations
-- Add support for board volume
-- Add weather API
-- Add French language option
+- Add real weather data from an API
+- Search sailing conditions by spot name
+- Improve terminal UI with Rich
+- Split safety score and fun score
+- Add board volume advice for windsurfing
 
 ## Author
 
