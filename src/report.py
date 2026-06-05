@@ -1,4 +1,4 @@
-def print_report(data, status, risk, sail_size, advice):
+def print_report(data, status, risk, score, sail_size, advice):
     print()
     print("==============================")
     print("        SESSION REPORT")
@@ -11,6 +11,7 @@ def print_report(data, status, risk, sail_size, advice):
     print()
     print("Session status:", status)
     print("Risk level:", risk)
+    print("Session score:", str(score) + "/100")
 
     if sail_size is not None:
         print("Recommended sail size:", sail_size)
