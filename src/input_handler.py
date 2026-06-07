@@ -5,25 +5,31 @@ from src.weather_api import get_weather
 
 def ask_choice(text, choices):
     value = input(text).strip().lower()
+
     while value not in choices:
         print("Invalid choice.")
         value = input(text).strip().lower()
+
     return value
 
 def ask_number(text):
     value = input(text).strip()
+
     while not value.replace(".", "", 1).isdigit():
         print("Please enter a number.")
         value = input(text).strip()
+
     return float(value)
 
 def get_manual_weather_data(data):
     data["wind"] = ask_number("Wind speed in knots: ")
     data["gusts"] = ask_number("Gusts in knots: ")
+
     data["direction"] = ask_choice(
         "Wind direction (onshore/offshore/sideshore): ",
         ["onshore", "offshore", "sideshore"]
     )
+
     return data
 
 def get_api_weather_data(data):
@@ -43,27 +49,25 @@ def get_api_weather_data(data):
     data["wind"] = weather["wind"]
     data["gusts"] = weather["gusts"]
     data["wind_degrees"] = weather["wind_degrees"]
+    data["direction"] = get_local_direction(spot, data["wind_degrees"])
 
     print()
     print("Weather loaded for", spot["name"])
     print("Wind:", str(data["wind"]), "kt")
     print("Gusts:", str(data["gusts"]), "kt")
     print("Direction:", str(data["wind_degrees"]), "degrees")
-    
-    data["direction"] = get_local_direction(spot, data["wind_degrees"])
     print("Local direction:", data["direction"])
 
     override = ask_choice(
         "Override local direction? (yes/no): ",
         ["yes", "no"]
-    )   
+    )
 
     if override == "yes":
         data["direction"] = ask_choice(
             "Local wind direction (onshore/offshore/sideshore): ",
             ["onshore", "offshore", "sideshore"]
         )
-    )
 
     return data
 
@@ -74,6 +78,7 @@ def get_session_data():
         "Activity (windsurf/catamaran/dinghy): ",
         ["windsurf", "catamaran", "dinghy"]
     )
+
     data["level"] = ask_choice(
         "Level (beginner/intermediate/advanced): ",
         ["beginner", "intermediate", "advanced"]
