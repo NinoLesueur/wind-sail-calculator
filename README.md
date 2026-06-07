@@ -40,3 +40,115 @@ wind-sail-calculator/
     ├── sail_size.py
     ├── advice.py
     └── report.py
+```
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/NinoLesueur/wind-sail-calculator.git
+cd wind-sail-calculator
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the program:
+
+```bash
+python3 main.py
+```
+
+## Usage
+
+The program asks for the session information directly in the terminal.
+
+Example input:
+
+```text
+Activity (windsurf/catamaran/dinghy): windsurf
+Level (beginner/intermediate/advanced): intermediate
+Wind speed in knots: 18
+Gusts in knots: 25
+Wind direction (onshore/offshore/sideshore): sideshore
+Weight in kg: 63
+```
+
+Example output:
+
+```text
+Wind Sail Calculator
+Sailing session advisor
+
+Session Report
+Activity      windsurf
+Level         intermediate
+Wind          18.0 kt
+Gusts         25.0 kt
+Direction     sideshore
+Weight        63.0 kg
+
+Session status: Sporty but manageable
+Risk level: Medium
+Session score: 90/100
+Recommended sail size: 5.5 - 6.5 m²
+
+Advice
+[OK] Good conditions for planing.
+[OK] Use harness and footstraps if you are comfortable.
+[!] Be careful with gusts.
+```
+
+## Calculation model
+
+The session score is based on several simple sailing rules:
+
+- Wind speed compared to the rider level
+- Difference between wind speed and gusts
+- Wind direction
+- Activity type
+- Rider level
+
+The windsurf sail size recommendation is based on:
+
+- Wind speed
+- Rider weight
+- Rider level
+- Gust strength
+
+The goal is not to replace a real weather forecast or instructor judgment, but to provide a quick and useful estimation before a session.
+
+## Safety note
+
+This tool gives basic advice based on simple sailing experience rules.
+
+It does not replace:
+
+- Official weather forecasts
+- Local safety rules
+- Instructor advice
+- Personal judgment
+- Real sea condition analysis
+
+Always check the spot, weather forecast and safety conditions before going on the water.
+
+## Future improvements
+
+- Add real weather data from an API
+- Search sailing conditions by spot name
+- Add wind direction analysis depending on the spot
+- Split safety score and fun score
+- Add a dedicated safety warning system
+- Add board volume advice for windsurfing
+- Add session history
+- Add CSV export
+- Add a terminal preview screenshot
+- Add a French language option
+
+## Author
+
+Nino Lesueur
