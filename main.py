@@ -7,9 +7,6 @@ from src.advice import activity_advice
 from src.report import print_report
 
 def main():
-    print("Wind Sail Calculator")
-    print()
-
     data = get_session_data()
 
     score = calculate_session_score(data)
