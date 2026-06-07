@@ -32,9 +32,9 @@ def print_title():
     )
 
 def print_session_table(data):
-    table = Table(show_header=False, box=None)
-    table.add_column("Field", style="bold cyan", width=14)
-    table.add_column("Value", style="white")
+    table = Table(show_header=False, box=None, padding=(0, 1))
+    table.add_column("Field", style="bold cyan", width=12)
+    table.add_column("Value", style="white", width=18)
 
     table.add_row("Activity", data["activity"])
     table.add_row("Level", data["level"])
@@ -43,7 +43,13 @@ def print_session_table(data):
     table.add_row("Direction", data["direction"])
     table.add_row("Weight", str(data["weight"]) + " kg")
 
-    console.print(Panel(table, title="Session Report", border_style="cyan"))
+    console.print(
+        Panel.fit(
+            table,
+            title="Session Report",
+            border_style="cyan"
+        )
+    )
 
 def print_scores(status, risk, score, sail_size):
     s_color = score_color(score)
@@ -62,9 +68,9 @@ def print_advice(advice):
 
     for item in advice:
         if "Offshore" in item or "shore break" in item or "gusts" in item:
-            console.print("[yellow]⚠[/yellow]", item)
+            console.print("[yellow][!][/yellow]", item)
         else:
-            console.print("[green]✓[/green]", item)
+            console.print("[green][OK][/green]", item)
 
 def print_report(data, status, risk, score, sail_size, advice):
     print_title()
